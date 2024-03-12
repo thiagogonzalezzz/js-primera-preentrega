@@ -1,78 +1,157 @@
-// productos y sus precios
-const products = [
-    { name: 'Aro', price: 2800 },
-    { name: 'Collar', price: 5800 },
-    { name: 'Pulsera', price: 18000 },
-    { name: 'Anillo', price: 3800 },
-    { name: 'Dije', price: 1800 },
-    { name: 'Uñas', price: 10000 },
-    { name: 'Spa', price: 30000 },
-    { name: 'Maquillaje', price: 18000 }
-];
+const productos = [
+    {
+        id: "anillo-1",
+        titulo: "Anillo 1",
+        imagen: "./multimedia/anillo.jpg",
+        categoria: {
+            nombre: "Anillos",
+            id: "anillos"
+        },
+        precio: 1000
+    },
+    {
+        id: "aros-1",
+        titulo: "Aros 1",
+        imagen: "./multimedia/aros.jpg",
+        categoria: {
+            nombre: "Aros",
+            id: "aros"
+        },
+        precio: 1000
+    },
+    {
+        id: "collar-1",
+        titulo: "Collar 1",
+        imagen: "./multimedia/collar foto 2.jpg",
+        categoria: {
+            nombre: "Collares",
+            id: "collares"
+        },
+        precio: 1000
+    },
+    {
+        id: "dije-1",
+        titulo: "Dije 1",
+        imagen: "./multimedia/dije.png",
+        categoria: {
+            nombre: "Dijes",
+            id: "dijes"
+        },
+        precio: 1000
+    },
+    {
+        id: "pulsera-1",
+        titulo: "Pulsera 1",
+        imagen: "./multimedia/pulsera.jpg",
+        categoria: {
+            nombre: "Pulseras",
+            id: "pulseras"
+        },
+        precio: 1000
+    },
+    {
+        id: "maquillaje",
+        titulo: "Servicio de maquillaje",
+        imagen: "./multimedia/servicio de maquillaje.jpg",
+        categoria: {
+            nombre: "Servicios",
+            id: "servicios"
+        },
+        precio: 1000
+    },
+    {
+        id: "spa",
+        titulo: "Servicio de spa",
+        imagen: "./multimedia/servicio de spa.jpg",
+        categoria: {
+            nombre: "Servicios",
+            id: "servicios"
+        },
+        precio: 1000
+    },
+    {
+        id: "unias",
+        titulo: "Servicio de uñas",
+        imagen: "./multimedia/servicio de uñas.jpg",
+        categoria: {
+            nombre: "Servicios",
+            id: "servicios"
+        },
+        precio: 1000
+    },
+]
 
-// mostrar el catalogo
-function mostrarCatalogo() {
-    console.log('Catálogo de productos:');
-    products.forEach((product, index) => {
-        console.log(`${index + 1}. ${product.name} - $${product.price}`);
-    });
+const contenedorProductos = document.querySelector("#c-productos")
+const bCategoria = document.querySelectorAll(".b-categoria")
+const tPrincipal = document.querySelector("#t-principal")
+let bAgregar = document.querySelectorAll(".producto-agregar")
+const numero = document.querySelector("#numero")
+
+
+function cargarProductos(productosElegidos) {
+
+    contenedorProductos.innerHTML = "";
+
+    productosElegidos.forEach(producto => {
+        const div = document.createElement("div");
+        div.classList.add("producto");
+        div.innerHTML = `
+            <img class="producto-img" src="${producto.imagen}" alt="${producto.titulo}">
+            <div class="producto-det">
+                <h3 class="producto-titulo">${producto.titulo}</h3>
+                <p class="producto-precio">${producto.precio}</p>
+                <button class="producto-agregar" id="${producto.id}">Agregar</button>
+            </div>
+        `;
+        contenedorProductos.append(div);
+
+        actBotonesAgregar();
+    })
 }
 
-// agregar productos al carrito
-function agregarAlCarrito(productIndex, quantity, cart) {
-    const product = products[productIndex - 1];
-    if (product) {
-        cart.push({ ...product, quantity });
-        console.log(`${quantity} ${product.name}(s) añadido(s) al carrito.`);
-    } else {
-        console.log('Producto no válido.');
-    }
-}
+cargarProductos(productos);
 
-// calcular el total del carrito
-function calcularTotal(cart) {
-    let total = 0;
-    cart.forEach(item => {
-        total += item.price * item.quantity;
-    });
-    return total;
-}
-
-// mostrar el carrito
-function mostrarCarrito(cart) {
-    console.log('Carrito de compra:');
-    cart.forEach((item, index) => {
-        console.log(`${index + 1}. ${item.name} x${item.quantity} - $${item.price * item.quantity}`);
-    });
-    console.log(`Total: $${calcularTotal(cart)}`);
-}
-
-// funcion principal
-function main() {
-    const cart = [];
-
-    console.log('Bienvenido a M&G Bijouterie.');
-
-    mostrarCatalogo();
-
-    let continuar = true;
-    while (continuar) {
-        const opcion = prompt('Ingrese el número del producto que desea agregar al carrito (0 para finalizar):');
-        const productIndex = parseInt(opcion);
-
-        if (productIndex === 0) {
-            continuar = false;
-            mostrarCarrito(cart);
-        } else if (productIndex >= 1 && productIndex <= products.length) {
-            const quantity = parseInt(prompt('Ingrese la cantidad:'));
-            agregarAlCarrito(productIndex, quantity, cart);
+bCategoria.forEach(boton => (
+    boton.addEventListener("click", (e) => {
+        bCategoria.forEach(boton => boton.classList.remove("active"));
+        e.currentTarget.classList.add("active");
+        if(e.currentTarget.id != "todos") {
+            const productoCategoria = productos.find(producto => producto.categoria.id === e.currentTarget.id);
+            tPrincipal.innerText = productoCategoria.categoria.nombre;
+            const productosBoton = productos.filter(producto => producto.categoria.id === e.currentTarget.id);
+            cargarProductos(productosBoton);
         } else {
-            console.log('Opción no válida.');
+            tPrincipal.innerText = "Todos los productos";
+            cargarProductos(productos);
         }
-    }
+    })
+));
 
-    console.log('Gracias por su compra.');
+function actBotonesAgregar () {
+    bAgregar = document.querySelectorAll(".producto-agregar");
+    bAgregar.forEach(boton => {
+        boton.addEventListener("click", agregarCarrito);
+    });
 }
 
-// ejecuto el programa
-main();
+const productosCarrito = [];
+
+function agregarCarrito(e) {
+    const idBoton = e.currentTarget.id;
+    const productoAgregado = productos.find(producto => producto.id === idBoton);
+    if(productosCarrito.some(producto => producto.id === idBoton)) {
+        const index = productosCarrito.findIndex(producto => producto.id === idBoton);
+        productosCarrito[index].cantidad++;
+    } else {
+        productoAgregado.cantidad = 1;
+        productosCarrito.push(productoAgregado);
+    }
+    actNumero();
+
+    localStorage.setItem("productos-carrito", JSON.stringify(productosCarrito));
+};
+
+function actNumero () {
+    let nuevoNumero = productosCarrito.reduce((acc, producto) => acc + producto.cantidad, 0);
+    numero.innerText = nuevoNumero;
+}

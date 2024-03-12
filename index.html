@@ -61,28 +61,28 @@
             <nav>
                 <ul class="menu">
                     <li>
-                        <button class="b-menu b-categoria active"><i class="fa-solid fa-arrow-right"></i></i> Todos</button>
+                        <button id="todos" class="b-menu b-categoria active"><i class="fa-solid fa-arrow-right"></i></i> Todos</button>
                     </li>
                     <li>
-                        <button class="b-menu b-categoria"><i class="fa-solid fa-arrow-right"></i></i> Aros</button>
+                        <button id="aros" class="b-menu b-categoria"><i class="fa-solid fa-arrow-right"></i></i> Aros</button>
                     </li>
                     <li>
-                        <button class="b-menu b-categoria"><i class="fa-solid fa-arrow-right"></i></i> Collares</button>
+                        <button id="collares" class="b-menu b-categoria"><i class="fa-solid fa-arrow-right"></i></i> Collares</button>
                     </li>
                     <li>
-                        <button class="b-menu b-categoria"><i class="fa-solid fa-arrow-right"></i></i> Pulseras</button>
+                        <button id="pulseras" class="b-menu b-categoria"><i class="fa-solid fa-arrow-right"></i></i> Pulseras</button>
                     </li>
                     <li>
-                        <button class="b-menu b-categoria"><i class="fa-solid fa-arrow-right"></i></i> Anillos</button>
+                        <button id="anillos" class="b-menu b-categoria"><i class="fa-solid fa-arrow-right"></i></i> Anillos</button>
                     </li>
                     <li>
-                        <button class="b-menu b-categoria"><i class="fa-solid fa-arrow-right"></i></i> Dije</button>
+                        <button id="dijes" class="b-menu b-categoria"><i class="fa-solid fa-arrow-right"></i></i> Dijes</button>
                     </li>
                     <li>
-                        <button class="b-menu b-categoria"><i class="fa-solid fa-arrow-right"></i></i> Servicios</button>
+                        <button id="servicios" class="b-menu b-categoria"><i class="fa-solid fa-arrow-right"></i></i> Servicios</button>
                     </li>
                     <li>
-                        <a class="b-menu b-carrito" href="./carrito.html"><i class="fa-solid fa-cart-shopping"></i> Carrito <span class="num-carrito">0</span></a>
+                        <a class="b-menu b-carrito" href="./carrito.html"><i class="fa-solid fa-cart-shopping"></i> Carrito <span id="numero" class="num-carrito">0</span></a>
                     </li>
                 </ul>
             </nav>
@@ -91,40 +91,9 @@
             </footer>
         </aside>
         <main>
-            <h2 class="t-principal">Todos los productos</h2>
-            <div class="c-productos">
-                <div class="producto">
-                    <img class="producto-img" src="multimedia/anillo.jpg" alt="producto1">
-                    <div class="producto-det">
-                        <h3 class="producto-titulo">Producto 1</h3>
-                        <p class="producto-precio">$9999</p>
-                        <button class="producto-agregar">Agregar</button>
-                    </div>
-                </div>
-                <div class="producto">
-                    <img class="producto-img" src="multimedia/anillo.jpg" alt="producto1">
-                    <div class="producto-det">
-                        <h3 class="producto-titulo">Producto 1</h3>
-                        <p class="producto-precio">$9999</p>
-                        <button class="producto-agregar">Agregar</button>
-                    </div>
-                </div>
-                <div class="producto">
-                    <img class="producto-img" src="multimedia/anillo.jpg" alt="producto1">
-                    <div class="producto-det">
-                        <h3 class="producto-titulo">Producto 1</h3>
-                        <p class="producto-precio">$9999</p>
-                        <button class="producto-agregar">Agregar</button>
-                    </div>
-                </div>
-                <div class="producto">
-                    <img class="producto-img" src="multimedia/anillo.jpg" alt="producto1">
-                    <div class="producto-det">
-                        <h3 class="producto-titulo">Producto 1</h3>
-                        <p class="producto-precio">$9999</p>
-                        <button class="producto-agregar">Agregar</button>
-                    </div>
-                </div>
+            <h2 id="t-principal" class="t-principal">Todos los productos</h2>
+            <div id="c-productos" class="c-productos">
+                <!--PRODUCTOS CARGADOS POR JS-->
             </div>
         </main>
     </div>
@@ -156,6 +125,6 @@
         <i class="fa-solid fa-circle-up"></i>
     </a>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<script src="main.js"></script>
+<script src="./js/main.js"></script>
 </body>
 </html>

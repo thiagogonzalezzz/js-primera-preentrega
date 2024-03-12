@@ -87,6 +87,7 @@ main {
 }
 .producto-img {
   max-width: 100%;
+  height: 250px;
   border-radius: 20px;
   transition: all 0.5s;
 }
