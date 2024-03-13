@@ -134,7 +134,14 @@ function actBotonesAgregar () {
     });
 }
 
-const productosCarrito = [];
+let productosCarrito;
+const productosCarritoLS = JSON.parse(localStorage.getItem("productos-carrito"));
+if(productosCarritoLS) {
+    productosCarrito = productosCarritoLS;
+    actNumero();
+} else {
+    productosCarrito = [];
+}
 
 function agregarCarrito(e) {
     const idBoton = e.currentTarget.id;
