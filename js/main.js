@@ -32,7 +32,7 @@ const productos = [
     {
         id: "dije-1",
         titulo: "Dije 1",
-        imagen: "./multimedia/dije.png",
+        imagen: "./multimedia/dije 2.jpg",
         categoria: {
             nombre: "Dijes",
             id: "dijes"
@@ -135,9 +135,9 @@ function actBotonesAgregar () {
 }
 
 let productosCarrito;
-const productosCarritoLS = JSON.parse(localStorage.getItem("productos-carrito"));
+let productosCarritoLS = localStorage.getItem("productos-carrito");
 if(productosCarritoLS) {
-    productosCarrito = productosCarritoLS;
+    productosCarrito = JSON.parse(productosCarritoLS);
     actNumero();
 } else {
     productosCarrito = [];
