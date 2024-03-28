@@ -1,0 +1,82 @@
+[
+    {
+        "id": "anillo-1",
+        "titulo": "Anillo 1",
+        "imagen": "./multimedia/anillo.jpg",
+        "categoria": {
+            "nombre": "Anillos",
+            "id": "anillos"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "aros-1",
+        "titulo": "Aros 1",
+        "imagen": "./multimedia/aros.jpg",
+        "categoria": {
+            "nombre": "Aros",
+            "id": "aros"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "collar-1",
+        "titulo": "Collar 1",
+        "imagen": "./multimedia/collar foto 2.jpg",
+        "categoria": {
+            "nombre": "Collares",
+            "id": "collares"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "dije-1",
+        "titulo": "Dije 1",
+        "imagen": "./multimedia/dije 2.jpg",
+        "categoria": {
+            "nombre": "Dijes",
+            "id": "dijes"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "pulsera-1",
+        "titulo": "Pulsera 1",
+        "imagen": "./multimedia/pulsera.jpg",
+        "categoria": {
+            "nombre": "Pulseras",
+            "id": "pulseras"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "maquillaje",
+        "titulo": "Servicio de maquillaje",
+        "imagen": "./multimedia/servicio de maquillaje.jpg",
+        "categoria": {
+            "nombre": "Servicios",
+            "id": "servicios"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "spa",
+        "titulo": "Servicio de spa",
+        "imagen": "./multimedia/servicio de spa.jpg",
+        "categoria": {
+            "nombre": "Servicios",
+            "id": "servicios"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "unias",
+        "titulo": "Servicio de uñas",
+        "imagen": "./multimedia/servicio de uñas.jpg",
+        "categoria": {
+            "nombre": "Servicios",
+            "id": "servicios"
+        },
+        "precio": 1000
+    }
+]

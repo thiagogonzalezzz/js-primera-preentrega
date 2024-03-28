@@ -1,85 +1,11 @@
-const productos = [
-    {
-        id: "anillo-1",
-        titulo: "Anillo 1",
-        imagen: "./multimedia/anillo.jpg",
-        categoria: {
-            nombre: "Anillos",
-            id: "anillos"
-        },
-        precio: 1000
-    },
-    {
-        id: "aros-1",
-        titulo: "Aros 1",
-        imagen: "./multimedia/aros.jpg",
-        categoria: {
-            nombre: "Aros",
-            id: "aros"
-        },
-        precio: 1000
-    },
-    {
-        id: "collar-1",
-        titulo: "Collar 1",
-        imagen: "./multimedia/collar foto 2.jpg",
-        categoria: {
-            nombre: "Collares",
-            id: "collares"
-        },
-        precio: 1000
-    },
-    {
-        id: "dije-1",
-        titulo: "Dije 1",
-        imagen: "./multimedia/dije 2.jpg",
-        categoria: {
-            nombre: "Dijes",
-            id: "dijes"
-        },
-        precio: 1000
-    },
-    {
-        id: "pulsera-1",
-        titulo: "Pulsera 1",
-        imagen: "./multimedia/pulsera.jpg",
-        categoria: {
-            nombre: "Pulseras",
-            id: "pulseras"
-        },
-        precio: 1000
-    },
-    {
-        id: "maquillaje",
-        titulo: "Servicio de maquillaje",
-        imagen: "./multimedia/servicio de maquillaje.jpg",
-        categoria: {
-            nombre: "Servicios",
-            id: "servicios"
-        },
-        precio: 1000
-    },
-    {
-        id: "spa",
-        titulo: "Servicio de spa",
-        imagen: "./multimedia/servicio de spa.jpg",
-        categoria: {
-            nombre: "Servicios",
-            id: "servicios"
-        },
-        precio: 1000
-    },
-    {
-        id: "unias",
-        titulo: "Servicio de uñas",
-        imagen: "./multimedia/servicio de uñas.jpg",
-        categoria: {
-            nombre: "Servicios",
-            id: "servicios"
-        },
-        precio: 1000
-    },
-]
+let productos = [];
+
+fetch("./js/productos.json")
+    .then(response => response.json())
+    .then(data => {
+        productos = data;
+        cargarProductos(productos);
+    })
 
 const contenedorProductos = document.querySelector("#c-productos")
 const bCategoria = document.querySelectorAll(".b-categoria")
@@ -108,8 +34,6 @@ function cargarProductos(productosElegidos) {
         actBotonesAgregar();
     })
 }
-
-cargarProductos(productos);
 
 bCategoria.forEach(boton => (
     boton.addEventListener("click", (e) => {
@@ -144,6 +68,24 @@ if(productosCarritoLS) {
 }
 
 function agregarCarrito(e) {
+    Toastify({
+        text: "Producto agregado",
+        duration: 3000,
+        close: true,
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+          background: "linear-gradient(to right, #8e5347, #d3a096)",
+          borderRadius: "20px",
+        },
+        offset: {
+            x: "5rem", 
+            y: "9rem"
+          },
+        onClick: function(){}
+      }).showToast();
+
     const idBoton = e.currentTarget.id;
     const productoAgregado = productos.find(producto => producto.id === idBoton);
     if(productosCarrito.some(producto => producto.id === idBoton)) {
